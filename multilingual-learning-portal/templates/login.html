@@ -1,0 +1,23 @@
+{# login.html — use this in templates/login.html #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="form-container">
+        <h2>Teacher Login</h2>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+        <p class="form-footer">Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+    </div>
+    <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
+</body>
+</html>

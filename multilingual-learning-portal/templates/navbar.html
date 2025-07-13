@@ -1,0 +1,15 @@
+
+
+<!-- templates/navbar.html -->
+<div class="navbar">
+    <div><strong>Eduportal</strong></div>
+    <div>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+        <a href="{{ url_for('upload') }}">Upload</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('quiz') }}">Quiz</a>
+      <button id="modeToggle" title="Toggle Dark Mode">🌙</button><!-- Dark mode toggle -->
+    </div>
+</div>

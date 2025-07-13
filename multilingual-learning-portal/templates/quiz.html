@@ -1,0 +1,35 @@
+{# quiz.html — add to templates/quiz.html #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="quiz-container">
+        <h2>Quiz Time!</h2>
+        {% if score is defined %}
+            <div class="score-box">🎉 Your Score: {{ score }}/{{ total }}</div>
+        {% endif %}
+        <form method="POST">
+            {% for question in questions %}
+                <div class="question-block">
+                    <p><strong>{{ loop.index }}. {{ question.text }}</strong></p>
+                    {% for option in question.options %}
+                        <label>
+                            <input type="radio" name="q{{ loop.index0 }}" value="{{ option }}"> {{ option }}
+                        </label><br>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <input type="submit" value="Submit Quiz">
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
+
+
+</body>
+</html>

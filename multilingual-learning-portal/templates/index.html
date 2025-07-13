@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- {% include 'navbar.html' %} -->
+
+    <div class="form-container" style="margin-top: 100px; text-align: center;">
+        <h1>Welcome to the Learning Portal</h1>
+        <div class="buttons">
+            <a href="{{ url_for('login') }}" class="btn blue">Login</a>
+            <a href="{{ url_for('register') }}" class="btn gray">Register</a>
+        </div>
+    </div>
+
+    <!-- <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script> -->
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - {{ username }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">EduPortal</div>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('upload') }}">Upload</a>
+            <a href="{{ url_for('dashboard', lang='en') }}">Dashboard</a>
+            <a href="{{ url_for('quiz') }}">Quiz</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="dashboard-box">
+            <h2>👋 Welcome, {{ username }}!</h2>
+            <p>📁 Uploaded Files for Language: <strong>{{ language }}</strong></p>
+
+            <!-- File List -->
+            <div class="file-list">
+                {% for file in files %}
+                    <a href="{{ url_for('download_file', lang=language, filename=file) }}" class="file-btn" download>
+                        <i class="fa fa-file"></i> {{ file }}
+                    </a>
+                {% else %}
+                    <p>No files uploaded yet for this language.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+<!-- End of templates/dashboard.html -->
+<!-- This file is used to display the user's dashboard with uploaded files for a specific language. -->
